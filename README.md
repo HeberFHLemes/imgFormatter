@@ -35,8 +35,11 @@ cd imgFormatter
 # Install dependencies (npm)
 npm install
 
-# Run
+# Run in dev mode
 npm run tauri dev
+
+# OR build the executable (will be in src-tauri/target/release/bundle/)
+npm run tauri build
 ```
 
 ---
