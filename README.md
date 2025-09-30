@@ -14,6 +14,33 @@ from **cwebp**, and even do that with a set of images.
 
 ---
 
+### Prerequisites
+
+- **Rust**: [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install)
+
+- **Node + npm**: [https://nodejs.org/](https://nodejs.org/)
+
+- **Tauri**: Platform-specific dependencies, see at [https://tauri.app/start/prerequisites/](https://tauri.app/start/prerequisites/)
+
+- **cwebp binary**: bundled with the app as a Tauri sidecar. If you prefer, you can manually download **libwebp** at [https://developers.google.com/speed/webp/download](https://developers.google.com/speed/webp/download), extract the **cwebp** binary, moving it to `./src-tauri/bin` and rename it to match what Tauri expects for your platform (e.g. cwebp.exe-x86_64-pc-windows-msvc on Windows).
+
+---
+
+### Running
+
+```
+# Go to the project root
+cd imgFormatter
+
+# Install dependencies (npm)
+npm install
+
+# Run
+npm run tauri dev
+```
+
+---
+
 ### Notes
 
 The **cwebp** executable bundled in this project is part of the **libwebp**
