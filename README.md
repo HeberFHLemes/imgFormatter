@@ -13,8 +13,22 @@ a graphical user interface to manipulate [cwebp](https://developers.google.com/s
 
 The idea is to make it even easier to convert an image format to .webp, with the already extraordinary tool that is the **cwebp**.
 
-It also let the user to change the dimension, quality and other available options
-from **cwebp**, and even do that with a set of images.
+Planned features include letting the user change the dimensions, quality, and other available options of **cwebp**, and applying those settings to multiple images at once.
+
+---
+
+> ### Status
+> ⚠️ This project is in active development. The UI is minimal and functionality is evolving.  
+Contributions and feedback are welcome!
+
+---
+
+### Usage
+
+- Select one or more images (locally)
+- The app generates corresponding `.webp` output paths automatically.
+- Click "Convert to WebP" to convert all selected images.
+- Conversion progress is shown in the app's console/log output.
 
 ---
 
@@ -53,4 +67,4 @@ npm run tauri build
 The **cwebp** executable bundled in this project is part of the **libwebp**
  library, developed by the **WebM Project**.
 
-**cwebp** is licensed under the **BSD 3-Clause License**. The full license text is included in the [cwebp-LICENSE](./src-tauri/bin/cwebp-LICENSE.txt) file bundled alongside the executable.
+**cwebp** is licensed under the **BSD 3-Clause License**. The full license text is included in the [cwebp-LICENSE](./src-tauri/bin/cwebp-LICENSE) file bundled alongside the executable.
