@@ -62,9 +62,13 @@ npm run tauri build
 
 ---
 
-### Notes
+## Notes
 
 The **cwebp** executable bundled in this project is part of the **libwebp**
  library, developed by the **WebM Project**.
 
 **cwebp** is licensed under the **BSD 3-Clause License**. The full license text is included in the [cwebp-LICENSE](./src-tauri/bin/cwebp-LICENSE) file bundled alongside the executable.
+
+###  License
+
+This project is licensed under MIT License. See [LICENSE](./LICENSE) for more information.
