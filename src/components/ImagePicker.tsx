@@ -3,34 +3,33 @@ import { useState } from "react";
 import "./ImagePicker.css";
 
 interface ImagePickerProps {
-  onSelect: (path: string) => void;
+  onSelect: (paths: string[]) => void;
 }
 
 export function ImagePicker({ onSelect }: ImagePickerProps) {
-  const [selected, setSelected] = useState("");
+
+  // array of strings or null for the paths selected
+  const [selected, setSelected] = useState<string[] | null>(null);
 
   const handleSelect = async () => {
     try {
-      const path = await open({
-        multiple: false,
-        filters: [{ name: "Images", extensions: ["jpg", "png", "webp", "jpeg"] }],
+      const paths = await open({
+        multiple: true,
+        filters: [{ 
+          name: "Images", 
+          extensions: ["jpg", "png", "webp", "jpeg"] 
+        }],
       });
 
-      if (!path) {
-        // user canceled
+      if (!paths) {
+          return;
+      } else if (typeof paths === "string") {
+        setSelected([paths]);
+        onSelect([paths]);
         return;
       }
-
-      if (Array.isArray(path)) {
-        // for now, not multiple files
-        const first = path[0];
-        setSelected(first);
-        onSelect(first);
-      } else {
-        // string case
-        setSelected(path);
-        onSelect(path);
-      }
+      setSelected(paths);
+      onSelect(paths);
     } catch (error) {
       console.error("Error opening dialog:", error);
     }
@@ -39,7 +38,12 @@ export function ImagePicker({ onSelect }: ImagePickerProps) {
   return (
     <div className="image-picker">
       <button onClick={handleSelect}>Select Image</button>
-      {selected && <p>Selected: {selected}</p>}
+      {selected && (
+        <div>
+          <p>Selected:</p>
+          {selected.map((file, i) => <div key={i}>{file}</div>)}
+        </div>
+      )}
     </div>
   );
 }

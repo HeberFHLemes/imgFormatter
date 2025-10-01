@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
-import "./App.css";
 import { ImagePicker } from "./components/ImagePicker";
+import "./App.css";
 
 function App() {
-  const [input, setInput] = useState("");
-  const [output, setOutput] = useState("");
+  const [inputs, setInputs] = useState<string[] | null>(null);
+  const [outputs, setOutputs] = useState<string[] | null>(null);
 
   const convert = async () => {
     try {
-      const msg = await invoke("convert_image", { input, output });
+      const msg = await invoke("convert_multiple_images", { inputs, outputs });
       alert(msg);
     } catch (err) {
       alert("Error: " + err);
@@ -19,16 +19,18 @@ function App() {
   return (
     <div className="app-container">
       <h1>WebP Converter</h1>
-      <ImagePicker onSelect={(path) => {
-        setInput(path);
-        setOutput(path.replace(/\.[^/.]+$/, ".webp"));
+      <ImagePicker onSelect={(paths) => {
+        setInputs(paths);
+        setOutputs(paths.map((input) => input.replace(/\.\w+$/, ".webp")));
       }} />
-      <input
-        value={output}
-        onChange={(e) => setOutput(e.target.value)}
-        placeholder=".webp Image Path"
-        className="input-field"
-      />
+      {outputs && (
+        <div className="output-preview">
+          <p>Output files:</p>
+          {outputs.map((path, i) => (
+            <div key={i}>{path}</div>
+          ))}
+        </div>
+      )}
       <button onClick={convert} className="convert-button">
         Convert to WebP
       </button>

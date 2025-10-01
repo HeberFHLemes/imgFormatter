@@ -2,7 +2,6 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 // From lib.rs
-fn main() 
-{
+fn main() {
     imgformatter_lib::run()
 }
