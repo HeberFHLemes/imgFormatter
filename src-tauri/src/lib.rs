@@ -51,6 +51,7 @@ async fn convert_image(app: AppHandle, input: String, output: String) -> Result<
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_shell::init())
+        .plugin(tauri_plugin_dialog::init())
         .invoke_handler(tauri::generate_handler![convert_image])
         .run(tauri::generate_context!())
         .expect("Error running Tauri application");
