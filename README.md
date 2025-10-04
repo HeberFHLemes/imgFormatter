@@ -64,13 +64,15 @@ npm run tauri build
 
 ### Screenshots
 
-#### Main page
-
 <div align='center'>
-
-<img src="./docs/main_page.webp" style="max-width: 80%;">
  
-<img src="./docs/converting.webp" style="max-width: 80%;">
+#### Main page
+ 
+<img src="./docs/main_page.webp" style="max-width: 100%;">
+
+#### Selected an image
+ 
+<img src="./docs/converting.webp" style="max-width: 50%;">
 
 </div>
 
