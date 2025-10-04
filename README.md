@@ -62,7 +62,21 @@ npm run tauri build
 
 ---
 
-## Notes
+### Screenshots
+
+#### Main page
+
+<div align='center'>
+
+<img src="./docs/main_page.webp" style="max-width: 80%;">
+ 
+<img src="./docs/converting.webp" style="max-width: 80%;">
+
+</div>
+
+---
+
+### Notes
 
 The **cwebp** executable bundled in this project is part of the **libwebp**
  library, developed by the **WebM Project**.
