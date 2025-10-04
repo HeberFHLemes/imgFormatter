@@ -1,4 +1,4 @@
-.app-container {
+.app-container { 
   padding: 2rem;
   max-width: 600px;
   margin: 40px auto;
@@ -18,17 +18,21 @@
   box-sizing: border-box;
 }
 
-.convert-button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 20px;
+button {
+  font-size: 1.1rem;
+  font-weight: 600;
   width: 100%;
-  background-color: #4caf50;
-  color: white;
   border: none;
   border-radius: 6px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
+}
+
+.convert-button {
+  padding: 0.5rem 1rem;
+  margin-top: 20px;
+  background-color: #4caf50;
+  color: white;
 }
 
 .convert-button:hover {
@@ -70,4 +74,12 @@ h1 {
 .file-path::-webkit-scrollbar-thumb {
   background-color: #ccc;
   border-radius: 4px;
+}
+
+.subheading {
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  margin-top: -10px;
+  margin-bottom: 20px;
 }

@@ -19,7 +19,8 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>WebP Converter</h1>
+      <h1>imgFormatter</h1>
+      <p className="subheading">Convert images to WebP format</p>
 
       <ImagePicker
         onSelect={(paths) => {
@@ -33,9 +34,9 @@ function App() {
           <p>Output files:</p>
           {outputs.map((path, i) => (
             <div key={i} className="file-path">
-            <FaFileImage style={{ marginRight: 8 }} />
-            {path}
-          </div>
+              <FaFileImage style={{ marginRight: 8 }} />
+              {path}
+            </div>
           ))}
         </div>
       )}

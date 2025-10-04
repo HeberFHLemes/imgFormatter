@@ -38,7 +38,7 @@ export function ImagePicker({ onSelect }: ImagePickerProps) {
 
   return (
     <div className="image-picker">
-      <button onClick={handleSelect}>Select Image(s)</button>
+      <button onClick={handleSelect} className="select-button">Select Image(s)</button>
 
       {selected && selected.length > 0 && (
         <div className="file-path-preview">
