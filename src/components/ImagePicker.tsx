@@ -1,5 +1,6 @@
 import { open } from "@tauri-apps/plugin-dialog";
 import { useState } from "react";
+import { FaFileImage } from "react-icons/fa";
 import "./ImagePicker.css";
 
 interface ImagePickerProps {
@@ -37,11 +38,20 @@ export function ImagePicker({ onSelect }: ImagePickerProps) {
 
   return (
     <div className="image-picker">
-      <button onClick={handleSelect}>Select Image</button>
-      {selected && (
-        <div>
-          <p>Selected:</p>
-          {selected.map((file, i) => <div key={i}>{file}</div>)}
+      <button onClick={handleSelect} className="select-button">Select Image(s)</button>
+
+      {selected && selected.length > 0 && (
+        <div className="file-path-preview">
+          <p>Selected files:</p>
+          {selected.map((file, i) => (
+            <div key={i} className="file-path" title={file}>
+              <FaFileImage style={{ marginRight: 8 }} />
+              {file}
+            </div>
+          ))}
+          <p className="hint-text">
+            Output files will have the same name, but with a <code>.webp</code> extension.
+          </p>
         </div>
       )}
     </div>
