@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { invoke } from "@tauri-apps/api/core";
+import { FaFileImage } from "react-icons/fa";
 import { ImagePicker } from "./components/ImagePicker";
 import "./App.css";
 
@@ -19,18 +20,26 @@ function App() {
   return (
     <div className="app-container">
       <h1>WebP Converter</h1>
-      <ImagePicker onSelect={(paths) => {
-        setInputs(paths);
-        setOutputs(paths.map((input) => input.replace(/\.\w+$/, ".webp")));
-      }} />
+
+      <ImagePicker
+        onSelect={(paths) => {
+          setInputs(paths);
+          setOutputs(paths.map((input) => input.replace(/\.\w+$/, ".webp")));
+        }}
+      />
+
       {outputs && (
-        <div className="output-preview">
+        <div className="file-path-preview">
           <p>Output files:</p>
           {outputs.map((path, i) => (
-            <div key={i}>{path}</div>
+            <div key={i} className="file-path">
+            <FaFileImage style={{ marginRight: 8 }} />
+            {path}
+          </div>
           ))}
         </div>
       )}
+
       <button onClick={convert} className="convert-button">
         Convert to WebP
       </button>
